@@ -1,0 +1,27 @@
+# INI inventory
+#[wordpress]
+#192.168.1.68 user=node1 user_password=node1007 mysql_password=mysqlnode1 domain="192.168.1.68" user_url="http://{{ domain  }}/"
+#192.168.1.24 user=node2 user_password=node2007 mysql_password=mysqlnode2 domain="192.168.1.24" user_url="http://{{ domain  }}"
+
+#[wordpress.vars]
+#user_title="'Mon blog wordpress'"
+
+# YAML inventory
+wordpress:
+  hosts:
+    192.168.1.68:
+      user: node1
+      user_password: node1007
+      mysql_password: mysqlnode1
+      domain: "192.168.1.68"
+      user_url: "http://{{ domain  }}/"
+
+    192.168.1.24:
+      user: node2
+      user_password: node2007
+      mysql_password: mysqlnode2
+      domain: "192.168.1.24"
+      user_url: "http://{{ domain  }}/"
+
+  vars:
+    user_title: "'Mon blog'"
