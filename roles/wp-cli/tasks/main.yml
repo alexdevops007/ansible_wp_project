@@ -18,10 +18,10 @@
     var: wordpress_dir.stat.exists
 
 - name: mkdir /var/www/wordpress
-    file:
-      path: /var/www/wordpress
-      state: directory
-    when: not wordpress_dir.stat.exists
+  file:
+    path: /var/www/wordpress
+    state: directory
+  when: not wordpress_dir.stat.exists
 
 - name: download wordpress
   command: >
