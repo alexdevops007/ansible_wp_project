@@ -1,8 +1,8 @@
 ---
 - name: download wp_cli
   get_url:
-    url: "{{ wp_cli_phar_url  }}"
-    dest: "{{ wp_cli_bin_path  }}"
+    url: "{{ wp_cli_phar_url }}"
+    dest: "{{ wp_cli_bin_path }}"
     force: true
     owner: root
     group: root
@@ -31,16 +31,15 @@
 
 - name: install wordpress
   command: >
-    wp --allow-root config create --dbname=wordpress --dbuser=wordpress --dbpass={{ mysql_password  }}} --locale=fr_FR
+    wp --allow-root config create --dbname=wordpress --dbuser=wordpress --dbpass={{ mysql_password }} --locale=fr_FR
     chdir=/var/www/wordpress
   args:
     creates: /var/www/wordpress/wp-config.php
 
 - name: configure wordpress
   command: >
-    wp --allow-root core install --url={{ user_url  }} --title={{ user_title  }} --admin_user={{ user  }} --admin_email=alexsms.devops@gmail.com --admin_password={{ user_password  }}
+    wp --allow-root core install --url={{ user_url }} --title={{ user_title }} --admin_user={{ user }} --admin_email=alexsms.devops@gmail.com --admin_password={{ user_password }}
     chdir=/var/www/wordpress
-
 - name: chown wordpress
   file: 
     dest: /var/www/wordpress
