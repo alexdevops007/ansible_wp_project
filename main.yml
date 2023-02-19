@@ -7,3 +7,4 @@
   roles:
     - server
     - mysql
+    - wp-cli
